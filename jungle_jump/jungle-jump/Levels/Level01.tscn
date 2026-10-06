@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bh0qqa2mwux2f"]
+
+[ext_resource type="Script" uid="uid://fk8dewlhmsk6" path="res://level_base.gd" id="1_bv1p4"]
+[ext_resource type="TileSet" uid="uid://dhxw3f8l2saqn" path="res://assets/tilesets/tiles_world.tres" id="2_ruw55"]
+[ext_resource type="TileSet" uid="uid://dn505hopwb4de" path="res://assets/tilesets/tiles_items.tres" id="3_v44il"]
+[ext_resource type="TileSet" uid="uid://blhd0ogpuydej" path="res://assets/tilesets/tiles_spikes.tres" id="4_c8o6p"]
+[ext_resource type="PackedScene" uid="uid://odvf1m5x3ba6" path="res://player.tscn" id="5_rg61p"]
+[ext_resource type="Texture2D" uid="uid://50io455eskre" path="res://assets/environment/back.png" id="6_s42oh"]
+[ext_resource type="Texture2D" uid="uid://b33vv5523s2t2" path="res://assets/environment/middle.png" id="7_ruw55"]
+
+[node name="Level01" type="Node2D" unique_id=827075591]
+script = ExtResource("1_bv1p4")
+
+[node name="World" type="TileMap" parent="." unique_id=1074128634]
+tile_set = ExtResource("2_ruw55")
+format = 2
+layer_0/tile_data = PackedInt32Array(196608, 327680, 1, 262144, 65536, 5, 458752, 196608, 1, 196609, 327680, 1, 262145, 196608, 5, 458753, 196608, 1, 196610, 327680, 1, 262146, 196608, 5, 458754, 196608, 1, 196611, 327680, 1, 262147, 196608, 5, 458755, 196608, 1, 196612, 327680, 1, 262148, 196608, 5, 458756, 196608, 1, 196613, 327680, 1, 262149, 196608, 5, 458757, 196608, 1, 196614, 327680, 1, 262150, 196608, 5, 458758, 196608, 1, 196615, 327680, 1, 262151, 196608, 5, 458759, 196608, 1, 196616, 196608, 1, 458760, 196608, 1, 458761, 196608, 1, 458762, 196608, 1, 458763, 1245184, 1, 393229, 196608, 1, 458765, 196608, 3, 393230, 196608, 1, 458766, 196608, 3, 458767, 1441792, 1, 458769, 1245184, 1, 393235, 1245184, 1, 327701, 327680, 1, 327702, 327680, 1, 327703, 327680, 1)
+
+[node name="Items" type="TileMap" parent="." unique_id=833044460]
+tile_set = ExtResource("3_v44il")
+format = 2
+layer_0/tile_data = PackedInt32Array(131073, 1, 0, 327693, 0, 0)
+
+[node name="Danger" type="TileMap" parent="." unique_id=514899229 groups=["danger"]]
+tile_set = ExtResource("4_c8o6p")
+format = 2
+layer_0/tile_data = PackedInt32Array(262165, 589824, 12)
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=848787944]
+
+[node name="Player" parent="." unique_id=1368048462 instance=ExtResource("5_rg61p")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=186319801]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2109564174]
+position = Vector2(1, 0)
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=938346320]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_s42oh")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1608886324]
+position = Vector2(1, 100)
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(880, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=684574572]
+texture_repeat = 3
+texture = ExtResource("7_ruw55")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 880, 368)
